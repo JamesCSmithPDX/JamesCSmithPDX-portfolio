@@ -25,15 +25,6 @@
     projectView.scroll('#about');
   };
 
-  projectView.about = function() {
-    $('.jumbotron').fadeTo(5000, 1);
-    $('.page-content').hide();
-    $('#hbAnagram').remove();
-    anagram.create();
-    $('#about').fadeIn(5000);
-    projectView.scroll('#about');
-  };
-
 
   // more and shrink function
   projectView.createTeaser = function() {
@@ -56,24 +47,20 @@
     }, 2000);
   };
 
-  projectView.renderPortfolio = function(){
+  projectView.setPage = function(){
+    $('.page-content').hide();
+    $('.jumbotron').fadeTo(5000, 0.5);
+    projectView.createTeaser();
+  };
+
+  //call the functions
+  projectView.initIndexPage = function(){
     Project.all.forEach(function(project){
       projectView.getTemplate(project, function(a){
         $('#projects').append(a);
       });
     });
     projectView.setPage();
-  };
-
-  projectView.setPage = function(){
-    projectView.createTeaser();
-    $('.page-content').hide();
-    $('.jumbotron').fadeTo(5000, 0.5);
-  };
-
-  //call the functions
-  projectView.initIndexPage = function(){
-    projectView.renderPortfolio();
   };
 
   module.projectView = projectView;

@@ -7,7 +7,7 @@
       projectView.portfolio();
     } else {
       console.log('In portfolioController empty');
-      Project.fetchAll(projectView.renderPortfolio);
+      Project.fetchAll(projectView.initIndexPage);
     }
   };
 
