@@ -32,7 +32,7 @@
   };
 
   //check etag json file
-  Project.fetchAll = function(callback) {
+  Project.fetchAll = function(ctx, next) {
     $.ajax({
       method: 'GET',
       url: 'data/portfolioProjects.json',
@@ -41,13 +41,13 @@
         var etagOld = localStorage.getItem('etag');
         if (!localStorage.rawData) {
           // no local storage get from server
-          Project.fetchServer(callback);
+          Project.fetchServer(next);
         } else if (etagNew === etagOld ) {
         //load from local
-          Project.fetchLocal(callback);
+          Project.fetchLocal(next);
         } else {
         // load from server
-          Project.fetchServer(callback);
+          Project.fetchServer(next);
         }
         //set etag
         localStorage.setItem('etag', etagNew);
@@ -56,18 +56,18 @@
   };
 
 // load json from local
-  Project.fetchLocal = function(callback) {
+  Project.fetchLocal = function(next) {
     Project.loadAll(JSON.parse(localStorage.getItem('rawData')));
-    callback();
+    next();
   };
 
 
   //load json from server
-  Project.fetchServer = function(callback){
+  Project.fetchServer = function(next){
     $.getJSON('data/portfolioProjects.json', function(rawData) {
       Project.loadAll(rawData);
       localStorage.setItem('rawData', JSON.stringify(rawData));
-      callback();
+      next();
     });
   };
 

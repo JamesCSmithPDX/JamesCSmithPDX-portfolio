@@ -54,13 +54,15 @@
   };
 
   //call the functions
-  projectView.initIndexPage = function(){
+  projectView.initIndexPage = function(ctx, next){
+    console.log('init');
     Project.all.forEach(function(project){
       projectView.getTemplate(project, function(a){
         $('#projects').append(a);
       });
     });
     projectView.setPage();
+    next();
   };
 
   module.projectView = projectView;

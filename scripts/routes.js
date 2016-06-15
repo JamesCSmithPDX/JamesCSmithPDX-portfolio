@@ -1,4 +1,4 @@
-page('/', projectController.index);
-page('/portfolio', portfolioController.index);
-page('/about', aboutController.index);
+page('/', Project.fetchAll, projectView.initIndexPage. projectView.initIndexPage);
+page('/portfolio', Project.fetchAll, projectView.portfolio);
+page('/about', projectView.about);
 page();

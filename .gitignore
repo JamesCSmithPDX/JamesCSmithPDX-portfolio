@@ -17,4 +17,5 @@ node_modules
 
 # Sublime
 *.sublime-project
-*.sublime-workspace
+*.sublime-workspace.env
+.env
