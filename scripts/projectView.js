@@ -19,8 +19,8 @@
   projectView.about = function() {
     $('.jumbotron').fadeTo(5000, 1);
     $('.page-content').hide();
-    $('#hbAnagram').remove();
-    anagram.create();
+    // $('#hbAnagram').remove();
+    // anagram.create();
     $('#about').fadeIn(5000);
     projectView.scroll('#about');
   };
