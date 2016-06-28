@@ -1,7 +1,7 @@
 {
   "name": "JamesCSmithPDX-portfolio",
   "version": "1.0.0",
-  "description": "POrtfolio site for James Smith, web developer",
+  "description": "Portfolio site for James Smith, web developer",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
