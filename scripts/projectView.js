@@ -56,6 +56,7 @@
   //call the functions
   projectView.initIndexPage = function(ctx, next){
     console.log('init');
+    console.log(Project.all);
     Project.all.forEach(function(project){
       projectView.getTemplate(project, function(a){
         $('#projects').append(a);

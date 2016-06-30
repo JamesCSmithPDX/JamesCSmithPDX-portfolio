@@ -1,4 +1,5 @@
 (function (module) {
+
 // Contructor for new portfolio project
   function Project (post) {
     this.title = post.title; //name of project
@@ -15,11 +16,6 @@
 
   Project.all = [];
 
-  // // TODO: add date info back to project template
-  // //build a blog post
-  // Project.prototype.dates = function() {
-  //
-  // };
 
   //sort blog data, crereate array, append to page
   Project.loadAll = function(projectData){
@@ -67,6 +63,8 @@
     $.getJSON('data/portfolioProjects.json', function(rawData) {
       Project.loadAll(rawData);
       localStorage.setItem('rawData', JSON.stringify(rawData));
+      ctx.rawData = rawData;
+      ctx.save();
       next();
     });
   };
