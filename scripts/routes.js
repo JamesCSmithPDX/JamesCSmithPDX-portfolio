@@ -1,5 +1,4 @@
 page('/', Project.fetchAll, projectView.initIndexPage);
-page('/portfolio', Project.fetchAll, projectView.initIndexPage, projectView.portfolio);
-page('/portfolio/*', '/portfolio');
+page('/portfolio', Project.fetchAll, projectView.portfolio);
 page('/about', projectView.about);
 page();
